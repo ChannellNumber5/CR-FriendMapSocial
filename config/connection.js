@@ -1,8 +1,9 @@
 const { connect, connection } = require('mongoose');
 
 connect('mongodb://localhost/friendMapSocial', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // should not need the below two lines for mongoose v 6.4.1    
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
 });
 
 module.exports = connection;
