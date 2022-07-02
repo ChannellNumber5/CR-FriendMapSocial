@@ -16,6 +16,10 @@ This API will be tested using Insomnia and may be developed into a full-stack ap
 - [Regex Matching](https://howtodoinjava.com/java/regex/match-any-set-of-characters/)
     -helpful site to clarify matching multiple characters
 - [Mongoose Getters/Setters](https://mongoosejs.com/docs/tutorials/getters-setters.html)
+- [findByIdAndDelete vs findByIdAndRemove](https://stackoverflow.com/questions/61451862/whats-the-difference-between-remove-and-delete-in-mongodb-updates)
+- [Mongoose deleteMany()](https://mongoosejs.com/docs/api.html#model_Model.deleteMany)
+- [Site Name](URL)
+- [Site Name](URL)
 - [Site Name](URL)
 - [Site Name](URL)
 - [Site Name](URL)
