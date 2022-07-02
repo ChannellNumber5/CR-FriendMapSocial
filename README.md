@@ -13,7 +13,7 @@ This API will be tested using Insomnia and may be developed into a full-stack ap
 - [useNewUrlParser Needed?](https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options)
 - [regular expressions 101](https://regex101.com/)
     - used this site to test then modify my first attempt at an email address verification regex
-- [Regez Matching](https://howtodoinjava.com/java/regex/match-any-set-of-characters/)
+- [Regex Matching](https://howtodoinjava.com/java/regex/match-any-set-of-characters/)
     -helpful site to clarify matching multiple characters
 - [Mongoose Getters/Setters](https://mongoosejs.com/docs/tutorials/getters-setters.html)
 - [Site Name](URL)
