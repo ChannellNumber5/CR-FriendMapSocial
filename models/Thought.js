@@ -18,7 +18,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type:Date,
             default:Date.now(),
-            
+            get:formatDate,
         }
     }
 );
@@ -47,15 +47,21 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
+            getters: true,
         },
         id: false,
     }
 );
 
-userSchema.virtual('friendCount').get(function () {
-    return this.friends.length
+userSchema.virtual('reactionCount').get(function () {
+    return this.reactions.length
 });
 
-const User = model('User', userSchema);
+function formatDate (date) {
+    const splitDate = date.split('-');
+    return splitDate[1] + splitDate[2].slice(0,1) + splitDate[0];
+}
+
+const User = model('Thought', thoughtSchema);
 
 module.exports = User;

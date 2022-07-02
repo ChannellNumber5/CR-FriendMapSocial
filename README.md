@@ -15,7 +15,7 @@ This API will be tested using Insomnia and may be developed into a full-stack ap
     - used this site to test then modify my first attempt at an email address verification regex
 - [Regez Matching](https://howtodoinjava.com/java/regex/match-any-set-of-characters/)
     -helpful site to clarify matching multiple characters
-- [Site Name](URL)
+- [Mongoose Getters/Setters](https://mongoosejs.com/docs/tutorials/getters-setters.html)
 - [Site Name](URL)
 - [Site Name](URL)
 - [Site Name](URL)
