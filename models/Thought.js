@@ -34,9 +34,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type:Date,
             default:Date.now(),
-            required: true,
-            trim: true,
-            match: /^([a-z0-9A-Z_])*@([a-zA-Z])*\.([a-zA-z])*$/,   
+            get:formatDate,
         },
         username: {
             type:String,
