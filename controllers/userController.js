@@ -28,9 +28,27 @@ module.exports = {
             .then(() => res.json({message:"User and Thoughts associated with this user account have been deleted"})
             )
             .catch((err) => res.status(500).json(err));
+    },
+    //add friend
+    addFriend(req,res){
+        User.findByIdAndUpdate(req.params.userId, {$addToSet:{friends:req.body}}, {new:true}
+            )
+            .then((user) =>
+                !user
+                    ? res.status(404).json({message: "No user found associated with that id"})
+                    : res.json(user)
+                    )
+                    .catch((err) => res.status(500).json(err));
+    },
+    //remove friend
+    removeFriend(req,res) {
+        User.findByIdAndUpdate(req.params.userId, {$pull:{friends: req.body}}, {new:true}
+            )
+            .then((user) =>
+                !user
+                    ? res.status(404).json({message: "No user found associated with that id"})
+                    : res.json(user)
+                    )
+                .catch((err) => res.status(500).json(err));
     }
-    //add friends
-
-    //remove friends
-
 }
