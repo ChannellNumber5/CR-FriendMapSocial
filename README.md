@@ -11,8 +11,10 @@ This API will be tested using Insomnia and may be developed into a full-stack ap
 - [Server.js vs. app.js vs. index.js](https://stackoverflow.com/questions/36002413/conventions-for-app-js-index-js-and-server-js-in-node-js)
 - [process.cwd()](https://www.geeksforgeeks.org/node-js-process-cwd-method/)
 - [useNewUrlParser Needed?](https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options)
-- [Site Name](URL)
-- [Site Name](URL)
+- [regular expressions 101](https://regex101.com/)
+    - used this site to test then modify my first attempt at an email address verification regex
+- [Regez Matching](https://howtodoinjava.com/java/regex/match-any-set-of-characters/)
+    -helpful site to clarify matching multiple characters
 - [Site Name](URL)
 - [Site Name](URL)
 - [Site Name](URL)
