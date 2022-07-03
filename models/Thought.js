@@ -34,7 +34,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type:Date,
             default:Date.now(),
-            get:formatDate,
+            // get: formatDate,
         },
         username: {
             type:String,
@@ -57,8 +57,10 @@ thoughtSchema.virtual('reactionCount').get(function () {
 
 function formatDate (date) {
     const splitDate = date.split('-');
-    return splitDate[1] + splitDate[2].slice(0,1) + splitDate[0];
-}
+    console.log(`Created on ${splitDate[1]}/${splitDate[2].slice(0,1)}/${splitDate[0]} at ${splitDate[2].slice(3,7)}`);
+    return `Created on ${splitDate[1]}/${splitDate[2].slice(0,1)}/${splitDate[0]} at ${splitDate[2].slice(3,7)}`;
+};
+
 
 const User = model('Thought', thoughtSchema);
 

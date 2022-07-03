@@ -25,8 +25,8 @@ module.exports = {
         Thought.findByIdAndUpdate(req.params.thoughtId, req.body, {runValidators:true, new:true })
             .then((thought) =>
             !thought
-            ? res.status(404).json({message: "No thought found associated with this id"})
-            : res.status(200).json(thought, {message:"Thought has been updated"})
+            ? res.status(400).json({message: "No thought found associated with this id"})
+            : res.status(200).json(thought)
             )
             .catch((err)=> res.status(500).json(err));
     },
