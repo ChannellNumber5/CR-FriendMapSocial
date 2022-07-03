@@ -36,7 +36,7 @@ The application should be used/tested in insomnia.
 This project is covered under the MIT license. Here is the [link](https://opensource.org/licenses/MIT) for more information about this license type.
 
 ## Questions
-If you have additional questions you contact via GitHub at [ChannellNumber5](https://github.com/ChannellNumber5). Also, you can email your inquiries to [CLRCoding@gmail.com]("mailto:CLRCoding@gmail.com")).
+If you have additional questions you contact via GitHub at [ChannellNumber5](https://github.com/ChannellNumber5). Also, you can email your inquiries to [CLRCoding@gmail.com]("mailto:CLRCoding@gmail.com").
 
 ## Resources
 
