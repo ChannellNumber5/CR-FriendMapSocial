@@ -11,8 +11,8 @@ module.exports = {
     //get single user by _id
     getSingleUser(req,res) {
         User.findById(req.params.userId)
-            .populate('thought')
-            .populate('friend')
+            .populate('thoughts')
+            .populate('friends')
             .then((user) => res.status(200).json(user))
             .catch((err) => res.status(400).json({message: "No User found associated with that id"}))
     },

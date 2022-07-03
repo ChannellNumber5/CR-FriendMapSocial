@@ -57,7 +57,6 @@ thoughtSchema.virtual('reactionCount').get(function () {
 
 function formatDate (date) {
     const splitDate = date.split('-');
-    console.log(`Created on ${splitDate[1]}/${splitDate[2].slice(0,1)}/${splitDate[0]} at ${splitDate[2].slice(3,7)}`);
     return `Created on ${splitDate[1]}/${splitDate[2].slice(0,1)}/${splitDate[0]} at ${splitDate[2].slice(3,7)}`;
 };
 
