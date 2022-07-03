@@ -49,7 +49,7 @@ module.exports = {
     },
     //add reaction
     addReaction(req,res){
-        Thought.findByIdAndUpdate(req.params.thoughtId, {$addToSet:{reactions:req.body}}, {new:true}
+        Thought.findByIdAndUpdate(req.params.thoughtId, {$push:{reactions:req.body}}, {new:true}
             )
             .then((thought) =>
                 !thought

@@ -4,6 +4,7 @@ This API is a backend application for a fictitious social networking application
 
 This API will be tested using Insomnia and may be developed into a full-stack application in the future.
 
+Check out this [link](https://www.youtube.com/watch?v=720FHxpC5Uw) and the link to the github repository is [here](https://github.com/ChannellNumber5/CR-FriendMapSocial) to the tutorial
 ##
 
 ## Resources
