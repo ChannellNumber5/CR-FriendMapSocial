@@ -8,9 +8,11 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
-    //get single thought by _id
+    //get single user by _id
     getSingleUser(req,res) {
-        user.findById(req.params.userId)
+        user.findById(req.body.userId)
+            .populate('thought')
+            .populate('friend')
             .then((user) => res.status(200).json(user))
             .catch((err) => res.status(400).json(err, {message: "No User found associated with that id"}))
     },
@@ -22,7 +24,7 @@ module.exports = {
     },
     //update user
     updateUser(req,res) {
-        User.findByIdAndUpdate(req.params.userId, req.body, {runValidators:true, new:true })
+        User.findByIdAndUpdate(req.body.userId, req.body, {runValidators:true, new:true })
             .then((user) =>
             !user
             ? res.status(404).json({message: "No user found associated with this id"})
@@ -32,7 +34,7 @@ module.exports = {
     },
     //delete user and associated thoughts
     deleteUser(req,res) {
-        User.findByIdAndDelete(req.params.userId)
+        User.findByIdAndDelete(req.body)
             .then((user) => 
             !user
             ? res.status(404).json({message:"No user found associated with that id"})
@@ -44,7 +46,7 @@ module.exports = {
     },
     //add friend
     addFriend(req,res){
-        User.findByIdAndUpdate(req.params.userId, {$addToSet:{friends:req.body}}, {new:true}
+        User.findByIdAndUpdate(req.params.userId, {$addToSet:{friends:req.params.friendId}}, {new:true}
             )
             .then((user) =>
                 !user
@@ -55,7 +57,7 @@ module.exports = {
     },
     //remove friend
     removeFriend(req,res) {
-        User.findByIdAndUpdate(req.params.userId, {$pull:{friends: req.body}}, {new:true}
+        User.findByIdAndUpdate(req.params.userId, {$pull:{friends: req.params.friendId}}, {new:true}
             )
             .then((user) =>
                 !user
