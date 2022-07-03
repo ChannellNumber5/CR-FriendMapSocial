@@ -53,7 +53,7 @@ module.exports = {
     },
     //remove friend
     removeReaction(req,res) {
-        Thought.findByIdAndUpdate(req.params.ThoughtId, {$pull:{reactions: req.body}}, {new:true}
+        Thought.findByIdAndUpdate(req.params.thoughtId, {$pull:{reactions: req.body}}, {new:true}
             )
             .then((thought) =>
                 !thought
