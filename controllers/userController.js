@@ -10,11 +10,11 @@ module.exports = {
     },
     //get single user by _id
     getSingleUser(req,res) {
-        user.findById(req.body.userId)
+        User.findById(req.params.userId)
             .populate('thought')
             .populate('friend')
             .then((user) => res.status(200).json(user))
-            .catch((err) => res.status(400).json(err, {message: "No User found associated with that id"}))
+            .catch((err) => res.status(400).json({message: "No User found associated with that id"}))
     },
     //create user
     createUser(req,res) {
