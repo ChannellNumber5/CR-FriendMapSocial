@@ -1,59 +1,64 @@
-const { User, Thought } = require('../models');
-
-//create thought
-
-//update thought
-
-//delete thought
+const { Thought } = require('../models');
 
 module.exports = {
+    //get all thoughts
+    getThoughts(req,res) {
+        Thought.find()
+            .then((thoughts) => res.status(200).json(thoughts)
+            )
+            .catch((err) => res.status(500).json(err));
+    },
+    //get single thought by _id
+    getSingleThought(req,res) {
+        Thought.findById(req.params.thoughtId)
+            .then((thought) => res.status(200).json(thought))
+            .catch((err) => res.status(400).json(err, {message: "No thought found associated with that id"}))
+    },
     //create Thought
     createThought(req,res) {
         Thought.create(req.body)
-            .then((user) => res.json(user))
+            .then((thought) => res.json(thought))
             .catch(() => res.status(500).json({messge:"New Thought could not be created"}));
     },
     //update Thought
     updateThought(req,res) {
-        Thought.findByIdAndUpdate(req.params.userId, req.body, {runValidators:true, new:true })
-            .then((user) =>
-            !user
-            ? res.status(404).json({message: "No user found associated with this id"})
-            : res.json(user)
+        Thought.findByIdAndUpdate(req.params.thoughtId, req.body, {runValidators:true, new:true })
+            .then((thought) =>
+            !thought
+            ? res.status(404).json({message: "No thought found associated with this id"})
+            : res.status(200).json(thought, {message:"Thought has been updated"})
             )
             .catch((err)=> res.status(500).json(err));
     },
     //delete Thought and associated Reactions
     deleteThought(req,res) {
-        User.findByIdAndDelete(req.params.userId)
-            .then((user) => 
-            !user
-            ? res.status(404).json({message:"No user found associated with that id"})
-            : Thought.deleteMany({_id: {$in: user.thoughts}})
-            )
-            .then(() => res.json({message:"User and Thoughts associated with this user account have been deleted"})
+        Thought.findByIdAndDelete(req.params.thoughtId)
+            .then((thought) => 
+            !thought
+            ? res.status(404).json({message:"No Thought found associated with that id"})
+            : res.status(200).json(thought)
             )
             .catch((err) => res.status(500).json(err));
     },
-    //add friend
+    //add reaction
     addReaction(req,res){
-        User.findByIdAndUpdate(req.params.userId, {$addToSet:{friends:req.body}}, {new:true}
+        Thought.findByIdAndUpdate(req.params.thoughtId, {$addToSet:{reactions:req.body}}, {new:true}
             )
-            .then((user) =>
-                !user
-                    ? res.status(404).json({message: "No user found associated with that id"})
-                    : res.json(user)
+            .then((thought) =>
+                !thought
+                    ? res.status(404).json({message: "No thought found associated with that id"})
+                    : res.status(200).json(thought, {message: "Reaction added!"})
                     )
                     .catch((err) => res.status(500).json(err));
     },
     //remove friend
     removeReaction(req,res) {
-        User.findByIdAndUpdate(req.params.userId, {$pull:{reactions: req.body}}, {new:true}
+        Thought.findByIdAndUpdate(req.params.ThoughtId, {$pull:{reactions: req.body}}, {new:true}
             )
-            .then((user) =>
-                !user
-                    ? res.status(404).json({message: "No user found associated with that id"})
-                    : res.json(user)
+            .then((thought) =>
+                !thought
+                    ? res.status(404).json({message: "No thought found associated with that id"})
+                    : res.json(thought)
                     )
                 .catch((err) => res.status(500).json(err));
     }
