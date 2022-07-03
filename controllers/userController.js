@@ -24,7 +24,7 @@ module.exports = {
     },
     //update user
     updateUser(req,res) {
-        User.findByIdAndUpdate(req.body.userId, req.body, {runValidators:true, new:true })
+        User.findByIdAndUpdate(req.params.userId, req.body, {runValidators:true, new:true })
             .then((user) =>
             !user
             ? res.status(404).json({message: "No user found associated with this id"})
@@ -34,7 +34,7 @@ module.exports = {
     },
     //delete user and associated thoughts
     deleteUser(req,res) {
-        User.findByIdAndDelete(req.body)
+        User.findByIdAndDelete(req.params.userId)
             .then((user) => 
             !user
             ? res.status(404).json({message:"No user found associated with that id"})
